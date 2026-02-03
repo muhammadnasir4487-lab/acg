@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>প্রবেশপত্র সিস্টেম</title>
+    <meta name="theme-color" content="#4338ca" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="manifest.json" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      @font-face {
+        font-family: 'BustanBold';
+        src: local('Arial');
+      }
+      @font-face {
+        font-family: 'RoupaUnicode';
+        src: local('Arial');
+      }
+      @font-face {
+        font-family: 'SulemanLipi';
+        src: local('Arial');
+      }
+
+      body {
+        font-family: 'Hind Siliguri', sans-serif;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .font-arabic-top { font-family: 'BustanBold', serif; }
+      .font-arabic-sub { font-family: 'RoupaUnicode', serif; }
+      .font-bangla { font-family: 'SulemanLipi', sans-serif; }
+      
+      @media print {
+        .no-print { display: none; }
+        body { background-color: white; }
+        .admit-card { box-shadow: none !important; border: none !important; margin-bottom: 0 !important; page-break-after: always; }
+      }
+
+      .brush-container {
+        position: relative;
+        display: inline-block;
+        padding: 5px 60px;
+        color: white;
+        font-weight: bold;
+        z-index: 1;
+      }
+      .brush-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: black;
+        z-index: -1;
+        clip-path: polygon(
+          0% 15%, 5% 5%, 15% 10%, 25% 2%, 35% 8%, 45% 0%, 55% 10%, 65% 2%, 75% 12%, 85% 5%, 95% 15%, 100% 10%,
+          100% 85%, 95% 95%, 85% 90%, 75% 98%, 65% 88%, 55% 100%, 45% 92%, 35% 98%, 25% 90%, 15% 95%, 5% 85%, 0% 90%
+        );
+      }
+      .brush-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -80px;
+        width: 120px;
+        background: linear-gradient(to right, black 20%, transparent 100%);
+        mask-image: linear-gradient(to right, black, transparent);
+        clip-path: polygon(0 0, 100% 45%, 80% 50%, 100% 55%, 0 100%);
+        z-index: -1;
+      }
+
+      /* Mobile Scaling for fixed width cards */
+      .card-scaler {
+        transform-origin: top center;
+      }
+      @media (max-width: 880px) {
+        .card-scaler {
+          transform: scale(calc(100vw / 900));
+        }
+        .card-wrapper {
+          height: calc(650px * (100vw / 900));
+          overflow: hidden;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "xlsx": "https://esm.sh/xlsx@^0.18.5",
+    "jspdf": "https://esm.sh/jspdf@^4.1.0",
+    "html2canvas": "https://esm.sh/html2canvas@^1.4.1",
+    "qrcode.react": "https://esm.sh/qrcode.react@^4.2.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-50">
+    <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW registration failed:', err));
+        });
+      }
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

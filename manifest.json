@@ -1,0 +1,18 @@
+
+{
+  "name": "Madrasa Admit Card Generator",
+  "short_name": "AdmitGen",
+  "description": "Automatic Admit Card Generation for Madrasas",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4338ca",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2991/2991148.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

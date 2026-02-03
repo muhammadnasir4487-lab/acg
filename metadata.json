@@ -1,0 +1,5 @@
+{
+  "name": "Admit Card Generator",
+  "description": "An automatic admit card generation system for Madrasas, allowing Excel uploads and customizable institution details with QR code generation.",
+  "requestFramePermissions": []
+}
